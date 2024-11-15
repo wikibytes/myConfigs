@@ -1,0 +1,10 @@
+width = 25%
+height = 60%
+border-width = 1
+outline-width = 0
+padding-left = 0%
+padding-top = 0%
+result-spacing = 0
+font = roboto
+font-size = 15
+background-color = #000A

@@ -1,0 +1,112 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 16,
+  "spacing": 0,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": ["custom/logo","custom/power","hyprland/workspaces", "clock", "tray"],
+	"onclick" : "activate",
+	"modules-center": ["hyprland/window"],
+  "modules-right": ["pulseaudio", "battery", "cpu", "memory", "network", "backlight"],
+
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
+  },
+
+  "battery": {
+    "bat": "BAT1",
+    "adapter": "ADP0",
+    "interval": 1,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "max-length": 20,
+    "format": "{icon}{capacity}%", "format-warning": "{icon}{capacity}%",
+    "format-critical": "{icon}{capacity}%",
+    "format-charging": "<span foreground='#26ff55'> {capacity} %</span>",
+    "format-plugged": "<span foreground='#26ff55'>  {capacity}%</span>",
+    "format-alt": "{icon} {time}",
+    "format-full": "<span foreground='#26ff55'> {capacity} %</span>",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  // "clock": {
+  //   "format": "<span color='#6bfffd'> </span>{:%I:%M %p}",
+  //   "format-alt": "<span color='#ff9854'> </span>{:%a %b %d}",
+  //   "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  // },
+
+  "cpu": {
+    "format": "cpu{usage}%",
+    "tooltip": true,
+    "interval": 1
+  },
+
+  "memory": {
+    "format": "  {used:0.2f}G"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [" ", " ", " "]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/logo": {
+    "format": " ashutosh",
+    "tooltip": false
+  },
+
+  //"custom/myName": {
+  //  "format": "ashutosh",
+  //  "tooltip": false,
+  //  "on-click": "hyprctl notify 1 5000 white This system is my property. kindly get ur hands of this system otherwise u will pay"
+  //},
+
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false
+  },
+
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "hyprctl notify 1 3000 shutting down the system & wlogout -p layer-shell & poweroff",
+    "format": "  "
+  },
+
+  "network": { // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid}({signalStrength}%)",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  
+  "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "hyprland/window": {
+        "max-length": 30
+  },
+  "clock": {
+	"interval": 60,
+	"format": "{:%H:%M}",
+	"max-length": 25
+  }
+}
